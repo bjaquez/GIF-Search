@@ -1,0 +1,25 @@
+body {
+    background-color: antiquewhite;
+}
+
+.search-buttons {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.s-buttons {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.gif-div {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#add-cartoon {
+    margin-top: 10px;
+}
+#cartoon-input {
+    border-radius: 10px;
+}
