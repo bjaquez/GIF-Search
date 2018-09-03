@@ -15,11 +15,34 @@ body {
 .gif-div {
     display: inline-block;
     margin-right: 10px;
+    margin-bottom: 20px;
 }
 
 #add-cartoon {
     margin-top: 10px;
+    margin-bottom: 20px
 }
 #cartoon-input {
     border-radius: 10px;
+}
+
+.btn-outline-danger {
+    margin-left: 100px;
+}
+
+#favorites {
+    margin-bottom: 20px;
+}
+
+.fave-img {
+    margin-bottom: 10px;
+}
+
+h5 {
+    display: inline-block;
+    margin-right: 20px;
+}
+.search-bar {
+    padding: 0;
+    width: 100%;
 }

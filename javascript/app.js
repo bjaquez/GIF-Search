@@ -43,36 +43,45 @@ $(document).ready(function(){
             for(var i=0; i<response.data.length; i++){
                 var div = $("<div class = 'gif-div'>");
                 var rating = $("<h6>").text("Rating: " + response.data[i].rating);
-                var gif = $("<img class = 'gif-image'>").attr("src", response.data[i].images.fixed_height_still.url);
-                gif.attr("data-animate", response.data[i].images.fixed_height.url);
-                gif.attr("data-still", response.data[i].images.fixed_height_still.url);
+                var gif = $("<img class = 'gif-image'>").attr("src", response.data[i].images.fixed_width_still.url);
+                var favorites = $("<button>").addClass("btn btn-sm btn-outline-danger favorite").attr("data-gif", response.data[i].images.fixed_width.url).html("<i class='far fa-heart'></i>");
+                gif.attr("data-animate", response.data[i].images.fixed_width.url);
+                gif.attr("data-still", response.data[i].images.fixed_width_still.url);
                 gif.attr("data-state", "still");
+                rating.append(favorites);
                 div.append(rating, gif);
                 $(".gifs").prepend(div);
-            }
-            $(".gif-image").on("click",function(){
-
-                var state = $(this).attr("data-state")
-                
-
-                if (state === "still"){
-                    $(this).attr("src", $(this).attr("data-animate"));
-                    $(this).attr("data-state", "animate");
-                }
-                else {
-                    $(this).attr("src", $(this).attr("data-still"));
-                    $(this).attr("data-state", "still");
-                }
-            })
-            })
-
-          
+            }    
+        
+            })       
 
     }
     
+    $(document).on("mouseover", ".gif-image", function(){
+        
+        var state = $(this).attr("data-state")
+        console.log(state);
+        
 
+        if (state === "still"){
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        }
+        else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        }
+    })
+
+    $(document).on("click", ".favorite", function(){
+        var faveImg = $("<img class = fave-img>").attr("src", $(this).attr("data-gif"))
+        $("#favorites").append(faveImg);
+
+    })
   
-
+    $(".clear").on("click", function(){
+        $("#favorites").empty();
+    })
 })
 
 
